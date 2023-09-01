@@ -140,7 +140,7 @@ function getBook(id) {
 }
 
 //destrcucturing
-const book = getBook(1);
+const book = getBook(3);
 const { title, author, genres, reviews, translations } = book;
 
 //rest operator
@@ -161,11 +161,26 @@ const updatedBooks = {
   pages: 17,
 };
 
-const updatedTranslations = {
-  ...translations,
-  //adding property
-  turkish: "Merhaba Dünya",
-};
-
 updatedBooks;
-updatedTranslations;
+
+// &&, || and ??
+console.log(5 > 4 ? "correct answer" : "false answer"); // if else statament
+console.log(5 > 4 && "correct answer"); // (working on true)
+console.log(5 < 4 || "false answer"); // (working on false)
+
+// ?? is nullish coalescing operator (null or undefined) example;
+const userName = null;
+const defaultUserName = "Mehmet";
+
+console.log(userName ?? defaultUserName);
+
+// Optional Chaining
+function getTotalReviewCount() {
+  const goodreads = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+
+  return goodreads + librarything;
+}
+getTotalReviewCount();
+
+console.log(getTotalReviewCount());
