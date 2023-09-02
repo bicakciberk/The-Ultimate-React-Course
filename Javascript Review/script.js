@@ -135,9 +135,15 @@ const data = [
   },
 ];
 
+function getBook() {
+  return book;
+}
+
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+/*
 
 //destrcucturing
 const book = getBook(3);
@@ -184,3 +190,63 @@ function getTotalReviewCount() {
 getTotalReviewCount();
 
 console.log(getTotalReviewCount());
+
+*/
+
+// map()
+
+// const newArr = [1, 2, 3, 4];
+// const deneme = newArr.forEach((number) => {
+//   console.log(number * 2)
+// });
+
+const newArr = [1, 2, 3, 4];
+const deneme = newArr.map((number) => {
+  console.log(number * 2);
+});
+
+// filter method
+
+// filter method like map method. because filter method is creating new array
+// but forEach isnt creating new array
+
+const longBooks = data.filter((data) => {
+  return data.pages > 500;
+});
+
+const hasMovieAdaptationLongBooks = longBooks.filter((book) => {
+  return book.hasMovieAdaptation === true;
+});
+
+const adventureBooks = data.filter((data) => {
+  return (data.genres = "adventure");
+});
+
+const adventureBooksTitle = adventureBooks.map((book) => {
+  return book.title;
+});
+
+adventureBooksTitle;
+
+// reduce method
+
+const pagesAllBooks = data.reduce((acc, book) => {
+  return acc + book.pages;
+}, 0);
+pagesAllBooks;
+
+// sort method
+
+const arr = [1, 2, 3, 4, 5];
+
+const sortedArr = arr.sort().reverse();
+sortedArr;
+
+const titles = data.map((data) => {
+  return data.title;
+});
+
+titles;
+
+const sortTitles = titles.sort();
+sortTitles;
