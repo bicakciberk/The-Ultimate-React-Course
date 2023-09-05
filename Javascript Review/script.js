@@ -284,3 +284,20 @@ const booksAfterUpdate = booksAfterDeleted.map((book) => {
     : book;
 });
 booksAfterUpdate;
+
+// async await
+
+// fetch('https://jsonplaceholder.typicode.com/posts')
+// .then((res)=>{
+//   return res.json()
+// })
+// .then((data)=>{
+//   console.log(data)
+// })
+
+async function example() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await res.json();
+  console.log(data);
+}
+example();
