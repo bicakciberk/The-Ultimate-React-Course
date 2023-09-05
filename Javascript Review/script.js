@@ -250,3 +250,37 @@ titles;
 
 const sortTitles = titles.sort();
 sortTitles;
+
+// working with immutable arrays
+// 1) adding book
+
+const newBook = {
+  id: 6,
+  title: "beyaz zambaklar ülkesinde",
+  author: "grigory petrov",
+};
+
+const booksAfterAdd = [...data, newBook];
+booksAfterAdd;
+
+// 2) deleting book
+// i should use filter method in here
+const booksAfterDeleted = booksAfterAdd.filter((book) => {
+  return book.id !== 5;
+});
+
+booksAfterDeleted;
+
+// 3) updating array
+// i should use map method because i will procressing
+
+const booksAfterUpdate = booksAfterDeleted.map((book) => {
+  return book.id === 1
+    ? {
+        ...book,
+        // changing or adding data
+        pages: 1,
+      }
+    : book;
+});
+booksAfterUpdate;
